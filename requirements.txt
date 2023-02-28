@@ -1,4 +1,13 @@
 numpy
-pandas
 matplotlib
+pandas
+qrcode
+pyqrcode
+pypng
+pyttsx3
+pillow
+keras
 scikit-learn
+flask
+virtualenv
+Flask-Mail

@@ -1,57 +1,96 @@
-from util import *
-import numpy as np
-from sklearn.ensemble import RandomForestRegressor
-# from sklearn.preprocessing import StandardScaler
-# from sklearn.linear_model import SGDRegressor
-# from sklearn.linear_model import LinearRegression
-import matplotlib.pyplot as plt
-x_train, y_train, month, temp, humidity, year = load_data()
-#x_train, y_train = data_load()
+from predictor import predict_rainfall
+from plot import train_and_plot
+from flask import Flask, render_template, request
+from flask_mail import Mail, Message
 
-rf_model = RandomForestRegressor()
-rf_model.fit(x_train.values,y_train)
-#print(y_train)
-print(x_train)
-# scl = StandardScaler()
-# x_n = scl.fit_transform(x_train)
-# sgr = LinearRegression()
-# sgr = SGDRegressor(max_iter=1000000)
-# sgr.fit(x_train,y_train)
+train_and_plot()
+def givepw():
+    return ""
+app = Flask(__name__)
+mail = Mail(app)
 
-# b_n = sgr.intercept_
-# w_n = sgr.coef_
+app.config["MAIL_DEFAULT_SENDER"] = "kg3479@srmist.edu.in"
+app.config["MAIL_PASSWORD"] = givepw()
+app.config["MAIL_PORT"] = 587
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_USE_TLS"] = True
+app.config["MAIL_USERNAME"] = "Kinshuk"
+mail = Mail(app)
 
-inp_tst = np.array([6,1,20.08,82.31,12.02])
-inp_tst = inp_tst.reshape(1,-1)
-# inp_tst = scl.fit_transform(inp_tst)
-# print('Rainfall = ',sgr.predict(inp_tst))
+rainfall = 0
 
-plt.scatter(year,y_train,color='red',marker='*')
-plt.bar(year,y_train,color='green')
-plt.xlabel('Year')
-plt.ylabel('Rainfall')
-plt.show()
+MENU = [
+    "Google Search",
+    "Sorting Algos",
+    "Rainfall Prediction"
+]
 
-plt.scatter(month,y_train,color='red',marker='*')
-plt.bar(month,y_train)
-plt.xlabel('Month')
-plt.ylabel('Rainfall')
-plt.show()
+MONTHS = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+]
 
-plt.scatter(temp,y_train,color='blue',marker='*')
-plt.plot(temp,y_train,color='green')
-plt.xlabel('Temperature')
-plt.ylabel('Rainfall')
-plt.show()
+@app.route('/')
+def index():
+    return render_template('index.html', menu = MENU, months = MONTHS)
 
-plt.scatter(humidity,y_train,marker='*')
-plt.hist2d(humidity,y_train)
-#ax = plt.axes()
-#ax.set_facecolor('black')
-plt.xlabel('Humidity')
-plt.ylabel('Rainfall')
-plt.show()
+@app.route('/output', methods = ['GET', 'POST'])
+def webpage():
+    # name = request.form.get("name", "world")
+    month = (request.form.get("month","January"))
+    m = int(MONTHS.index(month) + 1)
+    day = request.form.get("day",0)
+    temp = request.form.get("temp",0)
+    sphum = request.form.get("sphum",0)
+    relhum = request.form.get("relhum",0)
+    rainfall = str(predict_rainfall(int(m),int(day),float(sphum),float(relhum),float(temp)))
+    return render_template('output.html', 
+                           month = month, 
+                           day = day,
+                           temp = temp, 
+                           sphum = sphum, 
+                           relhum = relhum, 
+                           rainfall = rainfall)
 
-print('\n\n\n\nRainfall = ',rf_model.predict(inp_tst)[0])
-print('\n\n\n\n')
-# print('Rnf = ', np.dot(inp_tst,w_n)+b_n)
+@app.route('/mail')
+def ren_mail():
+    return render_template('mail.html')
+
+@app.route('/Sent', methods = ['GET', 'POST'])
+def send_mail():
+    email = request.form.get("remail","")
+    msg = Message(
+                'Hello',
+                sender ='kg3479@srmist.edu.in',
+                recipients = email
+               )
+    msg.body = 'Hello Flask message sent from Flask-Mail, RnF: {}'.format(rainfall)
+    mail.send(msg)
+    return "Mail Sent!"
+
+@app.route("/input")
+def greet():
+    return render_template("input.html")
+
+@app.route('/Kin')
+@app.route('/Kinshuk')
+def hello_Kin():
+    return 'Hello, Kinshuk!'
+
+@app.route('/Palak')
+def hello_Palak():
+    var = 3
+    return 'Hello Palak :{}'.format(var)
+
+if __name__ == '__main__':
+    app.run()
