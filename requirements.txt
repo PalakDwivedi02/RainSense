@@ -11,3 +11,4 @@ scikit-learn
 flask
 virtualenv
 Flask-Mail
+xgboost
