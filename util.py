@@ -17,3 +17,8 @@ def load_data():
     humidity = data['Relative Humidity']
     yr = data['Year']
     return x, y, m, tmp, humidity, yr
+
+def givesender():
+    return ""
+def givepw():
+    return ""
