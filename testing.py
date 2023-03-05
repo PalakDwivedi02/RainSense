@@ -17,7 +17,7 @@ class color:
    END = '\033[0m'
 
 def send_mail():
-    email = "kinshuk.goel2001@gmail.com"
+    email = "pd5619@srmist.edu.in"
     msg = EmailMessage()
     msg["from"] = givesender()
     msg["to"] = email
