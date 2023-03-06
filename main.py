@@ -1,22 +1,9 @@
 from predictor import *
 from plot import train_and_plot
 from flask import Flask, render_template, request, redirect, url_for
-from email.message import EmailMessage
-import smtplib
-# from flask_mail import Mail, Message
-
-train_and_plot()
+from modules.mailing import *
 
 app = Flask(__name__)
-
-# mail = Mail(app)
-# app.config["MAIL_DEFAULT_SENDER"] = "kg3479@srmist.edu.in"
-# app.config["MAIL_PASSWORD"] = givepw()
-# app.config["MAIL_PORT"] = 587
-# app.config["MAIL_SERVER"] = "smtp.gmail.com"
-# app.config["MAIL_USE_TLS"] = True
-# app.config["MAIL_USERNAME"] = "Kinshuk"
-# mail = Mail(app)
 
 rainfall = 0
 
@@ -49,10 +36,9 @@ def index():
 
 @app.route('/output', methods=['GET', 'POST'])
 def webpage():
-    # name = request.form.get("name", "world")
-    month = (request.form.get("month", "January"))
+    month = request.form.get("month", "January")
     m = int(MONTHS.index(month) + 1)
-    day = request.form.get("day", 0)
+    day = request.form.get("day", 1)
     temp = request.form.get("temp", 0)
     sphum = request.form.get("sphum", 0)
     relhum = request.form.get("relhum", 0)
@@ -78,24 +64,7 @@ def ren_mail():
 @app.route('/Sent', methods=['GET', 'POST'])
 def send_mail():
     email = request.form.get("remail", "")
-    message = EmailMessage()
-    message["from"] = givesender()
-    message["to"] = email
-    message["subject"] = "Rainfall Prediction Result"
-    message.set_content(
-        "Hello, this is an automated message from the Rainfall Prediction Page!\n\n\t\tThe Predicted Rainfall is: {0:.2f} mm.\n\nRegards,\nKin and Bells :3".format(rainfall))
-    # msg = Message(
-    #             'Hello',
-    #             sender = givesender(),
-    #             recipients = email
-    #            )
-    # msg.body = 'Hello Flask message sent from Flask-Mail, RnF: {}'.format(rainfall)
-    # mail.send(msg)
-    s = smtplib.SMTP('smtp.gmail.com', 587)
-    s.starttls()
-    s.login(givesender(), givepw())
-    s.send_message(message)
-    s.quit()
+    rnf_mail(email, rainfall)
     return "Mail Sent!"
 
 

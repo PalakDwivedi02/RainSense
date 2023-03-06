@@ -12,3 +12,4 @@ flask
 virtualenv
 Flask-Mail
 xgboost
+pyyaml
