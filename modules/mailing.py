@@ -27,12 +27,33 @@ def rnf_mail_alt(email, rainfall):
     message['from'] = givesender()
     message['to'] = email
     message['subject'] = "Rainfall Prediction Result"
-    message.set_content(
-        "Hello, this is an automated message from the Rainfall Prediction Page!\n\n\t\tThe Predicted Rainfall is: {0:.2f} mm.\n\nRegards,\nKin and Bells :3".format(rainfall))
+    # text_part = "\n\n\
+    #     Hello, this is an automated message from the Rainfall Prediction Page!\n\n\t\tThe Predicted Rainfall is: {0:.2f} mm.\n\nRegards,\nKin and Bells :3\
+    #         ".format(rainfall)
+    html_part = """\
+            <html>
+              <head>Rainfall Prediction Result</head>
+              <body>
+                <p style="color: green;">
+                Hello, this is an automated message from the Rainfall Prediction Page!
+                </p>
+                <p style="color: red;">
+                The Predicted Rainfall is: {0:.2f} mm.
+                </p>
+                <p style="color: black;">
+                (Feel free to leave us feedback on <a href="https://www.google.com">Google</a>!)
+                </p>
+                <p style="color: blue;">
+                Regards,<br>Kin and Bells :3
+                </p>
+              </body>
+            </html>
+        """.format(rainfall)
+    message.set_content(f'''{html_part}''',subtype='html')
     s = smtplib.SMTP('smtp.gmail.com', 587)
     s.starttls()
     s.login(givesender(), givepw())
-    s.send_message(message)
+    s.sendmail(givesender(), email, message.as_string())
     s.quit()
 
 

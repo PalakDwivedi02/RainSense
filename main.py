@@ -64,7 +64,7 @@ def ren_mail():
 @app.route('/Sent', methods=['GET', 'POST'])
 def send_mail():
     email = request.form.get("remail", "")
-    rnf_mail(email, rainfall)
+    rnf_mail_alt(email, rainfall)
     return "Mail Sent!"
 
 
