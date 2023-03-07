@@ -1,5 +1,6 @@
 import smtplib
 from modules.pwr import givepw, givesender
+from modules.genmail import generate_mail
 from email.message import EmailMessage
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -22,7 +23,7 @@ def rnf_mail(email, rainfall):
     s.quit()
 
 
-def rnf_mail_alt(email, rainfall):
+def rnf_mail_alt(email, rainfall, month, day, temp, sphum, relhum):
     message = EmailMessage()
     message['from'] = givesender()
     message['to'] = email
@@ -30,25 +31,7 @@ def rnf_mail_alt(email, rainfall):
     # text_part = "\n\n\
     #     Hello, this is an automated message from the Rainfall Prediction Page!\n\n\t\tThe Predicted Rainfall is: {0:.2f} mm.\n\nRegards,\nKin and Bells :3\
     #         ".format(rainfall)
-    html_part = """\
-            <html>
-              <head>Rainfall Prediction Result</head>
-              <body>
-                <p style="color: green;">
-                Hello, this is an automated message from the Rainfall Prediction Page!
-                </p>
-                <p style="color: red;">
-                The Predicted Rainfall is: {0:.2f} mm.
-                </p>
-                <p style="color: black;">
-                (Feel free to leave us feedback on <a href="https://www.google.com">Google</a>!)
-                </p>
-                <p style="color: blue;">
-                Regards,<br>Kin and Bells :3
-                </p>
-              </body>
-            </html>
-        """.format(rainfall)
+    html_part = generate_mail(rainfall, month, day, temp, sphum, relhum)
     message.set_content(f'''{html_part}''',subtype='html')
     s = smtplib.SMTP('smtp.gmail.com', 587)
     s.starttls()

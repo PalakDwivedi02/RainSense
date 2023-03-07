@@ -6,6 +6,11 @@ from modules.mailing import *
 app = Flask(__name__)
 
 rainfall = 0
+month = 'January'
+day = 1
+temp = 0
+sphum = 0
+relhum = 0
 
 MENU = [
     "Google Search",
@@ -36,13 +41,18 @@ def index():
 
 @app.route('/output', methods=['GET', 'POST'])
 def webpage():
+    global rainfall
+    global month
+    global day
+    global temp
+    global sphum
+    global relhum
     month = request.form.get("month", "January")
     m = int(MONTHS.index(month) + 1)
     day = request.form.get("day", 1)
     temp = request.form.get("temp", 0)
     sphum = request.form.get("sphum", 0)
     relhum = request.form.get("relhum", 0)
-    global rainfall
     rainfall = predict_rainfall(int(m), int(
         day), float(sphum), float(relhum), float(temp))
     return render_template('output.html',
@@ -64,7 +74,7 @@ def ren_mail():
 @app.route('/Sent', methods=['GET', 'POST'])
 def send_mail():
     email = request.form.get("remail", "")
-    rnf_mail_alt(email, rainfall)
+    rnf_mail_alt(email, rainfall, month, day, temp, sphum, relhum)
     return "Mail Sent!"
 
 
