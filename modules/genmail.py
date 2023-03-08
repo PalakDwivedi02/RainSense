@@ -19,14 +19,14 @@ def generate_mail(rainfall, month, day, temp, sphum, relhum):
                     According to the entered data: <br>
                 </div>
                 <div style="color: goldenrod; font-weight: 520;">
-                    The Date is: {{month}}, {{day}}. <br>
-                    The Temperature is: {{temp}} degrees Celsius. <br>
-                    The Specific Humidity is: {{sphum}} g/kg. <br>
-                    The Relative Humidity is: {{relhum}} %. <br>
+                    The Date is: {month}, {day}. <br>
+                    The Temperature is: {temp} degrees Celsius. <br>
+                    The Specific Humidity is: {sphum} g/kg. <br>
+                    The Relative Humidity is: {relhum} %. <br>
                 </div>
                 </p>
                 <p style="color: red; font-weight: 750;">
-                    The Predicted Rainfall is: {{rainfall}} mm.
+                    The Predicted Rainfall is: {rainfall} mm.
                 </p>
                 <p style="color: white;">
                     (Feel free to leave us feedback on our
