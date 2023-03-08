@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <p style="color: black; font-weight: 700; font-style: italic;">
+        The email has been sent to your inbox.
+    </p>
+    <a href="{{url_for('mail_content')}}" target="_blank">(Check the mailed content)</a><br>
+    <br>Return to <a href="{{url_for('index')}}">Home</a>?<br>
+{% endblock %}

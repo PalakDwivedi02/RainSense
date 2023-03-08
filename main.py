@@ -39,7 +39,7 @@ def index():
     return render_template('index.html', menu=MENU, months=MONTHS)
 
 
-@app.route('/output', methods=['GET', 'POST'])
+@app.route('/prediction', methods=['GET', 'POST'])
 def webpage():
     global rainfall
     global month
@@ -55,7 +55,7 @@ def webpage():
     relhum = request.form.get("relhum", 0)
     rainfall = predict_rainfall(int(m), int(
         day), float(sphum), float(relhum), float(temp))
-    return render_template('output.html',
+    return render_template('prediction.html',
                            month=month,
                            day=day,
                            temp=temp,
@@ -64,23 +64,28 @@ def webpage():
                            rainfall=rainfall)
 
 
-@app.route('/mail')
+@app.route('/enter-mail')
 def ren_mail():
     if request.method == 'POST':
         return redirect(url_for('send_mail'))
-    return render_template('mail.html')
+    return render_template('askemail.html')
 
 
-@app.route('/Sent', methods=['GET', 'POST'])
+@app.route('/mail-Sent', methods=['GET', 'POST'])
 def send_mail():
-    email = request.form.get("remail", "")
+    email = request.form.get('remail', "")
     rnf_mail_alt(email, rainfall, month, day, temp, sphum, relhum)
-    return "Mail Sent!"
+    return render_template('mailsent.html')
 
 
-@app.route("/input")
+@app.route('/mail-content')
+def mail_content():
+    return render_template('mailcontent.html', rainfall=str(f'{rainfall:.2f}'), month=month, day=day, temp=temp, sphum=sphum, relhum=relhum)
+
+
+@app.route('/input')
 def greet():
-    return render_template("input.html")
+    return render_template('input.html')
 
 
 @app.route('/Kin')

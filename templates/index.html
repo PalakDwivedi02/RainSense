@@ -4,7 +4,7 @@
 
     <h2>Hello, Welcome to our Rainfall Prediction page!</h2>
     <br> <br>
-    <form action = "/output" method = "post">
+    <form action = "/prediction" method = "post">
         <!-- {% for item in menu %}
             <input type="radio" name="menu" value="{{ item }}"> {{ item }} <br>
         {% endfor %}
@@ -32,7 +32,7 @@
         Enter Relative Humidity:
         <input required autocomplete ="off" type="text" name="relhum" placeholder="Enter Relative Humidity">
         <br> <br>
-        <input type="submit" value="Go" name="data">
+        <input type="submit" style=" width: 400px; left: 250; top: 250;" value="Predict" name="data">
     </form>
 
 {% endblock %}
