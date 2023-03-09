@@ -1,5 +1,5 @@
 from predictor import *
-# from plot import train_and_plot
+from plotting import *
 from flask import Flask, render_template, request, redirect, url_for
 from modules.mailing import *
 
@@ -37,6 +37,11 @@ MONTHS = [
 @app.route('/')
 def index():
     return render_template('index.html', menu=MENU, months=MONTHS)
+
+
+@app.route('/plot')
+def plot():
+    return render_template('plots.html', plot_html=year_plot())
 
 
 @app.route('/prediction', methods=['GET', 'POST'])

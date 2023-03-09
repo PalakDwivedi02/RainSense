@@ -40,8 +40,9 @@ def year_plot():
     plt.xlabel('Year')
     plt.ylabel('Rainfall')
     fg = plt.figure()
-    render_plot(fg)
-    plt.show()
+    # render_plot(fg)
+    # plt.show()
+    return mpld3.fig_to_html(fg)
 
 
 def month_plot():
