@@ -1,5 +1,5 @@
 from predictor import *
-from plot import train_and_plot
+# from plot import train_and_plot
 from flask import Flask, render_template, request, redirect, url_for
 from modules.mailing import *
 
