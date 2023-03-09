@@ -1,38 +1,75 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-    <h2>Hello, Welcome to our Rainfall Prediction page!</h2>
-    <br> <br>
-    <form action = "/prediction" method = "post">
-        <!-- {% for item in menu %}
+<h1>Hello!</h1>
+<h2>Welcome to the Rainfall Prediction page!</h2>
+<br> <img src="{{url_for('static', filename='logo.png')}}align=" middle" />
+<h3>What is Rainfall?</h3>
+<p> Rainfall is the water that falls from the clouds to the ground. It is a very important natural phenomenon. It is the
+    source of water for the plants and animals. It is also the source of water for the human beings. </p>
+<h3>What is Rainfall Prediction?</h3>
+<p> Rainfall prediction is the process of forecasting the amount of rain that will fall in a given area. It is a very
+    important process in agriculture, hydrology, and meteorology. It is also important for the planning of water
+    resources and for the management of water supply and flood control. </p>
+<h3>How does it work?</h3>
+<p> Rainfall prediction is based on the analysis of the atmospheric conditions that are likely to produce rain. The
+    atmospheric conditions that are likely to produce rain are called the "precipitation producing conditions". The
+    precipitation producing conditions are the temperature, humidity, and wind speed. </p>
+<h3>What is Machine Learning?</h3>
+<p> Machine Learning is a branch of Artificial Intelligence. It is the study of algorithms that can learn from data. It
+    is a very important field of computer science. It is used in many fields like robotics, natural language processing,
+    and computer vision. </p>
+<h3>How is rainfall prediction useful?</h3>
+<p> Rainfall prediction is very useful for the farmers. It helps them to plan their farming activities. It also helps
+    them to plan the irrigation of their crops. It is also useful for the water resources management. It helps them to
+    plan the water supply and flood control. </p>
+<h3>How to use this website?</h3>
+<p> This website is very easy to use. You just need to enter the following details: </p>
+<ul>
+    <li> Month and Day </li>
+    <li> Temperature </li>
+    <li> Specific Humidity </li>
+    <li> Relative Humidity </li>
+</ul>
+<p> After entering the details, click on the "Predict" button. The website will predict the rainfall for the next day.
+</p>
+<h3>How accurate is the prediction?</h3>
+<p> The prediction is very accurate. The accuracy of the prediction takes advantage of the best machine learning model
+    for rainfall predictions. </p>
+<hr>
+<i>Wish to know the rainfall prediction for the next day?</i>
+<h3>Enter the following details:</h3>
+<form action="/prediction" method="post">
+    <!-- {% for item in menu %}
             <input type="radio" name="menu" value="{{ item }}"> {{ item }} <br>
         {% endfor %}
         <br> <br> -->
-        Enter Month and Day:
-        <select name="month">
-                <option disabled selected value> Select Month </option>
-            {% for month in months %}
-                <option value="{{ month }}"> {{ month }}</option>
-            {% endfor %}
-        </select>
-        <select name="day">
-                <option disabled selected value> Select Day </option>
-            {% for i in range (1, 32) %}
-                <option value="{{ i }}"> {{ i }}</option>
-            {% endfor %}
-        </select>
-        <br> <br>
-        Enter Temperature:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input required autocomplete ="off" type="text" name="temp" placeholder="Enter Temperature">
-        <br> <br>
-        Enter Specific Humidity:
-        <input required autocomplete ="off" type="text" name="sphum" placeholder="Enter Specific Humidity">
-        <br> <br>
-        Enter Relative Humidity:
-        <input required autocomplete ="off" type="text" name="relhum" placeholder="Enter Relative Humidity">
-        <br> <br>
-        <input type="submit" style=" width: 400px; left: 250; top: 250;" value="Predict" name="data">
-    </form>
+    Enter Month and Day:
+    <select name="month">
+        <option disabled selected value> Select Month </option>
+        {% for month in months %}
+        <option value="{{ month }}"> {{ month }}</option>
+        {% endfor %}
+    </select>
+    <select name="day">
+        <option disabled selected value> Select Day </option>
+        {% for i in range (1, 32) %}
+        <option value="{{ i }}"> {{ i }}</option>
+        {% endfor %}
+    </select>
+    <br> <br>
+    Enter Temperature:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input required autocomplete="off" type="text" name="temp" placeholder="Enter Temperature">
+    <br> <br>
+    Enter Specific Humidity:
+    <input required autocomplete="off" type="text" name="sphum" placeholder="Enter Specific Humidity">
+    <br> <br>
+    Enter Relative Humidity:
+    <input required autocomplete="off" type="text" name="relhum" placeholder="Enter Relative Humidity">
+    <br> <br> <br>
+    <input type="submit" style=" width: 400px; left: 250; top: 250;" value="Predict" name="data">
+    <br> <br>
+</form>
+<hr>
 
 {% endblock %}
