@@ -100,18 +100,18 @@ button{
     font-size: 1em;
     font-weight: 600;
 }
-.register{
+.dunno{
     font-size: .9em;
     color: #fff;
     text-align: center;
     margin: 25px 0 10px;
 }
-.register p a{
+.dunno p a{
     text-decoration: none;
     color: #fff;
     font-weight: 600;
 }
-.register p a:hover{
+.dunno p a:hover{
     text-decoration: underline;
 }
 
