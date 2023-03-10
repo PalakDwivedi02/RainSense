@@ -47,9 +47,9 @@ def generate_mail(rainfall, month, day, temp, sphum, relhum):
                 </div>
                 <div style="color: white; font-weight: 750;"> <br>
                     <div style="color:white;">Regards,</div>
-                    <a href="https://www.linkedin.com/in/kinshuk-goel/" target="_blank" style="color: navy;">Kinshuk</a> 
+                    <a href="https://www.linkedin.com/in/kinshuk-goel/" target="_blank" style="color: rgb(13, 13, 191);">Kinshuk</a> 
                     and 
-                    <a href="https://www.linkedin.com/in/palak-dwivedi-017437247/" target="_blank" style="color: navy;">Palak</a>
+                    <a href="https://www.linkedin.com/in/palak-dwivedi-017437247/" target="_blank" style="color: rgb(13, 13, 191);">Palak</a>
                     <br> 
                     <div style="color:red">Neural Archmages</div>
                 </div>
