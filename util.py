@@ -39,6 +39,6 @@ def specific_humidity(rh, temp):
     e = rh * es
 
     # Calculate specific humidity
-    sh = 0.622 * e / (1013.25 - 0.378 * e)
+    sh = 1000 * 0.622 * e / (1013.25 - 0.378 * e)
 
     return sh
