@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/form.css">
+    <title>Rainfall Prediction Form</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+
+    <i>Wish to know the rainfall prediction for the next day?</i>
+    <h3>Enter the following details:</h3>
+    <section>
+
+    <div class="form-box">
+        <div class="form-value">
+            <form action="/prediction" method="post">
+                <h2>Enter Data</h2>
+
+                Enter Date:
+                <select name="month" style="background-color: transparent;">
+                    <option disabled selected value> Select Month </option>
+                    {% for month in months %}
+                    <option value="{{ month }}"> {{ month }}</option>
+                    {% endfor %}
+                </select>
+            
+                <select name="day" style="background-color: transparent;">
+                    <option disabled selected value> Select Day </option>
+                    {% for i in range (1, 32) %}
+                    <option value="{{ i }}"> {{ i }}</option>
+                    {% endfor %}
+                </select>
+            
+                <br>
+                <div class="inputbox">
+                    <input required autocomplete="off" type="text" name="temp">
+                    <label for="">Temperature</label>
+                    <ion-icon name="thermometer-outline"></ion-icon>
+                </div>
+                
+                <div class="inputbox">
+                    <input required autocomplete="off" type="text" name="sphum">
+                    <label for="">Specific Humidity</label>
+                    <ion-icon name="water-outline"></ion-icon>
+                </div>
+                
+                <div class="inputbox">
+                    <input required autocomplete="off" type="text" name="relhum">
+                    <label for="">Relative Humidity</label>
+                    <ion-icon name="mail-outline"></ion-icon>
+                </div>
+                <button type="submit" value="Predict" name="data">Predict</button>
+                <!-- <input type="submit" style=" width: 400px; left: 250; top: 250;" value="Predict" name="data"> -->
+                
+                <div class="register">
+                    <p>Don't know what this is? Try <a href="#"> Google</a></p>
+                </div>
+
+            </form>
+
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
+
+<!-- {% for item in menu %}
+                        <input type="radio" name="menu" value="{{ item }}"> {{ item }} <br>
+                    {% endfor %}
+                    <br> <br> -->

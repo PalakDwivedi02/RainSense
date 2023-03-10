@@ -1,12 +1,17 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
+    
     <h1>Hello!</h1>
 
     <h2>Welcome to the Rainfall Prediction page!</h2>
 
-    <br> <img src="{{url_for('static', filename='logo.png')}}" style="height: 50%; width: 35%;" />
+    <br>
+
+    <a href="{{url_for('pred_form')}}"><img src="{{url_for('static', filename='logo.png')}}" 
+        style="height: 50%; width: 35%; border-radius: 50%;
+        margin: 0 auto; display: flex; justify-content: center;" />
+    </a>
 
     <h3>What is Rainfall?</h3>
     
@@ -58,41 +63,6 @@
         The prediction is very accurate. The accuracy of the prediction takes advantage of the best machine learning model
         for rainfall predictions. 
     </p>
-<hr>
-    <i>Wish to know the rainfall prediction for the next day?</i>
-
-    <h3>Enter the following details:</h3>
-    <form action="/prediction" method="post">
-        <!-- {% for item in menu %}
-                <input type="radio" name="menu" value="{{ item }}"> {{ item }} <br>
-            {% endfor %}
-            <br> <br> -->
-        Enter Month and Day:
-        <select name="month">
-            <option disabled selected value> Select Month </option>
-            {% for month in months %}
-            <option value="{{ month }}"> {{ month }}</option>
-            {% endfor %}
-        </select>
-        <select name="day">
-            <option disabled selected value> Select Day </option>
-            {% for i in range (1, 32) %}
-            <option value="{{ i }}"> {{ i }}</option>
-            {% endfor %}
-        </select>
-        <br> <br>
-        Enter Temperature:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input required autocomplete="off" type="text" name="temp" placeholder="Enter Temperature">
-        <br> <br>
-        Enter Specific Humidity:
-        <input required autocomplete="off" type="text" name="sphum" placeholder="Enter Specific Humidity">
-        <br> <br>
-        Enter Relative Humidity:
-        <input required autocomplete="off" type="text" name="relhum" placeholder="Enter Relative Humidity">
-        <br> <br> <br>
-        <input type="submit" style=" width: 400px; left: 250; top: 250;" value="Predict" name="data">
-        <br> <br>
-    </form>
-<hr>
+    <hr>
 
 {% endblock %}

@@ -38,6 +38,9 @@ MONTHS = [
 def index():
     return render_template('index.html', menu=MENU, months=MONTHS)
 
+@app.route('/form')
+def pred_form():
+    return render_template('form.html', months=MONTHS)
 
 @app.route('/plot')
 def plot():
@@ -45,7 +48,7 @@ def plot():
 
 
 @app.route('/prediction', methods=['GET', 'POST'])
-def webpage():
+def form_submit():
     global rainfall
     global month
     global day
@@ -106,4 +109,4 @@ def hello_Palak():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
