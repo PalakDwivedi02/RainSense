@@ -42,14 +42,18 @@ def generate_mail(rainfall, month, day, temp, sphum, relhum):
                     <a href="https://github.com/PalakDwivedi02/Rainfall-Prediction-using-ML" target="_blank"> Github Page</a>!)
                 </p>
                 <p>
-                <div style="color: green;">
+                <div style="color: limegreen;">
                     Thank you for using our service!
-                    <div style="color: royalblue; font-weight: 750;"> <br>
-                        Regards,<br>
-                        <a href="https://www.linkedin.com/in/kinshuk-goel/" target="_blank">Kin</a> and <a
-                            href="https://www.linkedin.com/in/palak-dwivedi-017437247/" target="_blank">Bells</a> :3
-                    </div>
-                    </p>
+                </div>
+                <div style="color: white; font-weight: 750;"> <br>
+                    <div style="color:white;">Regards,</div>
+                    <a href="https://www.linkedin.com/in/kinshuk-goel/" target="_blank" style="color: navy;">Kinshuk</a> 
+                    and 
+                    <a href="https://www.linkedin.com/in/palak-dwivedi-017437247/" target="_blank" style="color: navy;">Palak</a>
+                    <br> 
+                    <div style="color:red">Neural Archmages</div>
+                </div>
+                </p>
             </body>
             
             </html>
