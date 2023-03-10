@@ -29,6 +29,7 @@ def train_on_data():
 
 def predict_rainfall(month,day,sphum,relhum,temp):
     xgb_model = train_on_data()
+    sphum = specific_humidity(relhum,temp)
     inp = np.array([month,day,sphum,relhum,temp])
     inp = inp.reshape(1,-1)
     # return rf_model.predict(inp)[0]
