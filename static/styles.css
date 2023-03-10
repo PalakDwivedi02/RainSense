@@ -29,7 +29,7 @@ h2,h1{
     text-align: center;
 }
 
-.forget {
+.link {
     margin: -15px 0 15px;
     font-size: .9em;
     color: #fff;
@@ -37,17 +37,17 @@ h2,h1{
     justify-content: space-between;
 }
 
-.forget label input {
+.link label input {
     margin-right: 3px;
 
 }
 
-.forget label a {
+.link label a {
     color: #fff;
     text-decoration: none;
 }
 
-.forget label a:hover {
+.link label a:hover {
     text-decoration: underline;
 }
 
