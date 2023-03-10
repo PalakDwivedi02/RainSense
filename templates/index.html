@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    
+    <hr> <br>
     <h1>Hello!</h1>
 
-    <h2>Welcome to the Rainfall Prediction page!</h2>
+    <h2><u>Welcome to the Rainfall Prediction Portal!</u></h2>
 
     <br>
 
@@ -12,7 +12,7 @@
         style="height: 50%; width: 35%; border-radius: 50%;
         margin: 0 auto; display: flex; justify-content: center;" />
     </a>
-
+    <p style="text-align: center; color:slateblue;">(Click on the image to go to the prediction page.)</p>
     <br>
     <h3>What is Rainfall?</h3>
     
@@ -49,9 +49,9 @@
 
     <ul>
         <li> Month and Day </li>
-        <li> Temperature </li>
-        <li> Specific Humidity </li>
-        <li> Relative Humidity </li>
+        <li> Temperature (Celsius) </li>
+        <li> Specific Humidity (g/kg) </li>
+        <li> Relative Humidity (%)</li>
     </ul>
 
     <p> 
@@ -64,6 +64,7 @@
         The prediction is very accurate. The accuracy of the prediction takes advantage of the best machine learning model
         for rainfall predictions. 
     </p>
+    <br> <br>
     <hr>
 
 {% endblock %}

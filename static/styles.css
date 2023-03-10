@@ -17,10 +17,15 @@ section {
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
-    min-height: 100vh;
+    /* min-height: 100vh; */
     /* width: 100%; */
     text-align: center;
     background-attachment: fixed;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+section p {
     margin-left: 100px;
     margin-right: 100px;
 }
@@ -31,7 +36,10 @@ h1 {
     color: #fff;
     text-align: center;
 }
-
+h3 {
+    text-decoration: underline;
+    color: black;
+}
 .link {
     margin: -15px 0 15px;
     font-size: .9em;
