@@ -5,12 +5,14 @@
     /* padding: 0; */
     font-family: 'poppins', sans-serif;
 }
-body{
+
+body {
     background: url('bg.jpg') top right no-repeat;
     background-attachment: fixed;
     background-size: 100%;
     background-position: center;
 }
+
 section {
     /* display: flex; */
     /* justify-content: center; */
@@ -23,7 +25,8 @@ section {
     margin-right: 100px;
 }
 
-h2,h1{
+h2,
+h1 {
     font-size: 2em;
     color: #fff;
     text-align: center;
@@ -77,6 +80,15 @@ button {
 }
 
 .register p a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #006699;
+    text-decoration: none;
+}
+
+a:hover {
     text-decoration: underline;
 }
 
