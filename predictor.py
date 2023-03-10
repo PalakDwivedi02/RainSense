@@ -27,9 +27,9 @@ def train_on_data():
 # b_n = sgr.intercept_
 # w_n = sgr.coef_
 
-def predict_rainfall(a,b,c,d,e):
+def predict_rainfall(month,day,sphum,relhum,temp):
     xgb_model = train_on_data()
-    inp = np.array([a,b,c,d,e])
+    inp = np.array([month,day,sphum,relhum,temp])
     inp = inp.reshape(1,-1)
     # return rf_model.predict(inp)[0]
     return xgb_model.predict(inp)[0]
