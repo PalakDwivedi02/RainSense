@@ -30,8 +30,7 @@ def generate_mail(rainfall, month, day, temp, sphum, relhum):
                 </p>
                 <p style="color: white;">
                     (Feel free to leave us feedback on our
-                    <a href="mailto:kg3479@srmist.edu.in,
-                                pd5619@srmist.edu.in?
+                    <a href="mailto:archmages.neural@gmail.com?
                                 &cc=
                                 &bcc=
                                 &subject=Feedback for Rainfall Prediction Page
