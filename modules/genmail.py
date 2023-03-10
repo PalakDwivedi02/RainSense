@@ -26,7 +26,7 @@ def generate_mail(rainfall, month, day, temp, sphum, relhum):
                 </div>
                 </p>
                 <p style="color: red; font-weight: 750;">
-                    The Predicted Rainfall is: {rainfall} mm.
+                    The Predicted Rainfall is: {rainfall:.2f} mm.
                 </p>
                 <p style="color: white;">
                     (Feel free to leave us feedback on our
