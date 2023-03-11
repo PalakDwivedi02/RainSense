@@ -11,9 +11,11 @@ body {
     background-attachment: fixed;
     background-size: 100%;
     background-position: center;
+    background-color: red;
 }
 
 section {
+    background: url('bg.jpg') top right no-repeat;
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
@@ -23,6 +25,7 @@ section {
     background-attachment: fixed;
     margin-left: 10px;
     margin-right: 10px;
+    backdrop-filter: blur(3px);
 }
 
 section p {
@@ -37,8 +40,10 @@ h1 {
     text-align: center;
 }
 h3 {
+    position: relative;
     text-decoration: underline;
-    color: black;
+    color: greenyellow;
+    text-align: center;
 }
 .link {
     margin: -15px 0 15px;
