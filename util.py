@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def data_load():
-    data = np.loadtxt('Rnf.txt', delimiter=',')
+    data = np.loadtxt('data/Rnf.txt', delimiter=',')
     x = data[:, 1:6]
     y = data[:, 6]
     # y = (np.rint(y)).astype(int)
@@ -11,7 +11,7 @@ def data_load():
 
 
 def load_data():
-    data = pd.read_csv('Rainfall_data.csv')
+    data = pd.read_csv('data/Rainfall_data.csv')
     x = data.drop(['Year', 'Precipitation'], axis=1)
     y = data['Precipitation']
     m = data['Month']
