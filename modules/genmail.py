@@ -6,9 +6,10 @@ def generate_mail(rainfall, month, day, temp, sphum, relhum):
                 <div style="font-weight: 1000; color: white;"><u>Rainfall Prediction Result</u></div>
             </head>
             
-            <body style="background-color: black;">
-                <br> <img src="https://i.imgur.com/PiZMOCp.png" width="36%" height="56%"
-                    style="vertical-align:middle; align-items: center;">
+            <body style="background-color: black; text-align: center;">
+                <br> <a href="#">
+                <img src="https://i.imgur.com/PiZMOCp.png" width="36%" height="56%"
+                    style="vertical-align:middle; align-items: center;"> </a>
                 <p style="color: green;">
                     <b>
                         Hello, this is an automated message from the Rainfall Prediction Page!
