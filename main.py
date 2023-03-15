@@ -33,6 +33,16 @@ MONTHS = [
     "December"
 ]
 
+PLOTS = [
+    "Yearly Rainfall",
+    "Monthly Rainfall",
+    "Temperature vs Rainfall",
+    "Relative Humidity vs Rainfall",
+]
+
+@app.route('/plotform')
+def plotform():
+    return render_template('plotform.html', plots=PLOTS)
 
 @app.route('/')
 def index():
@@ -42,9 +52,18 @@ def index():
 def pred_form():
     return render_template('form.html', months=MONTHS)
 
-@app.route('/plot')
-def plot():
-    return render_template('plots.html', plot_html=year_plot())
+@app.route('/plottedcurve', methods = ['GET', 'POST'])
+def showplot():
+    plot_type = request.form.get("plottype", "Yearly Rainfall")
+    if plot_type == "Yearly Rainfall":
+        return render_template('yrplot.html')
+    elif plot_type == "Monthly Rainfall":
+        return render_template('moplot.html')
+    elif plot_type == "Temperature vs Rainfall":
+        return render_template('tmplot.html')
+    elif plot_type == "Relative Humidity vs Rainfall":
+        return render_template('huplot.html')
+    return render_template('plotform.html', plots=PLOTS)
 
 
 @app.route('/prediction', methods=['GET', 'POST'])
@@ -110,3 +129,4 @@ def hello_Palak():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    train_and_plot()

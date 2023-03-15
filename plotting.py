@@ -39,10 +39,8 @@ def year_plot():
     plt.bar(year, y_train, color='green')
     plt.xlabel('Year')
     plt.ylabel('Rainfall')
-    fg = plt.figure()
-    # render_plot(fg)
-    # plt.show()
-    return mpld3.fig_to_html(fg)
+    plt.savefig('static/yrplot.png')
+    
 
 
 def month_plot():
@@ -50,9 +48,8 @@ def month_plot():
     plt.bar(month, y_train)
     plt.xlabel('Month')
     plt.ylabel('Rainfall')
-    fg = plt.figure()
-    render_plot(fg)
-    plt.show()
+    plt.savefig('static/moplot.png')
+    
 
 
 def temp_plot():
@@ -60,9 +57,8 @@ def temp_plot():
     plt.plot(temp, y_train, color='green')
     plt.xlabel('Temperature')
     plt.ylabel('Rainfall')
-    fg = plt.figure()
-    render_plot(fg)
-    plt.show()
+    plt.savefig('static/tmplot.png')
+    
 
 
 def humidity_plot():
@@ -72,13 +68,12 @@ def humidity_plot():
     # ax.set_facecolor('black')
     plt.xlabel('Humidity')
     plt.ylabel('Rainfall')
-    fg = plt.figure()
-    render_plot(fg)
-    plt.show()
+    plt.savefig('static/huplot.png')
+    
 
-    # print('\n\n\n\nRainfall = ',rf_model.predict(inp_tst)[0])
-    # print('\n\n\n\n')
-    # print('Rnf = ', np.dot(inp_tst,w_n)+b_n)
-
-# train_and_plot()
-# year_plot()
+def train_and_plot():
+    year_plot()
+    month_plot()
+    temp_plot()
+    humidity_plot()
+#year_plot()

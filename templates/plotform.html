@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/form.css">
+    <title>Rainfall Prediction Form</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+
+    <div style="background-color: navy; color: white; ">
+        &nbsp&nbspNeural Archmages <ion-icon name="cloudy-night-outline"></ion-icon>
+    </div>
+    <section>
+
+    <div class="form-box">
+        <div class="form-value">
+            <form action="/plottedcurve" method="post">
+                
+                <h2>Enter Choice</h2>
+
+                <br> <br>
+                <select name="plottype" style="background-color: transparent;" required>
+                    <option disabled selected value> Select an option </option>
+                    {% for plottype in plots %}
+                    <option value="{{ plottype }}"> {{ plottype }}</option>
+                    {% endfor %}
+                </select>
+                <br> <br>
+                <button type="submit" value="Send" name="plottype">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+    </section>
+        <div style="background-color: navy; color: white; text-align: right;">
+            Neural Archmages <ion-icon name="cloudy-night-outline"></ion-icon> &nbsp&nbsp
+        </div>
+</body>
+</html>

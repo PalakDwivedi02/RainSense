@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div style="color: aliceblue;">
+    <div style="color: violet;">
+        <b>The plotted curve looks as follows: </b>
+    </div>
+    <br><br>
+    <img src="{{url_for('static', filename='huplot.png')}}" alt="plot" style="width: 100%; height: 100%;">
+    </div>
+
+{% endblock %}
