@@ -14,3 +14,4 @@ Flask-Mail
 xgboost
 pyyaml
 mpld3
+solana
